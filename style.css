@@ -10,7 +10,7 @@
 
 html{
     font-size: 62.5%;
-    overflow: hidden;
+    overflow: scroll;
 }
 
 body{
@@ -18,9 +18,18 @@ body{
     min-height: 100vh;
     display: flex;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: space-around;
+    gap: 50px;
     background:linear-gradient(coral, blueviolet);
     padding:5.5rem;
+}
+
+.page-container {
+    display: flex;
+    flex: 0 1 1156px;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 30px;
 }
 
 section{
@@ -54,7 +63,8 @@ section{
 }
 
 header{
-    width:35rem;
+    min-width:35rem;
+    flex: 0 1 35rem;
     background:rgba(255,255,255,.2);
     box-shadow: 0 1rem 2rem rgba(0,0,0,.3);
     backdrop-filter: blur(.4rem);
@@ -116,19 +126,30 @@ header .navbar ul li a:hover{
 
 .container{
     height:58rem;
-    width:80rem;
+    flex: 0 1 80rem;
     background:rgba(255,255,255,.2);
     box-shadow: 0 1rem 2rem rgba(0,0,0,.3);
     backdrop-filter: blur(.4rem);
     border-radius: 1rem;
-    overflow: hidden;
+    overflow: scroll;
+}
+
+.home-div {
+    display: flex;
+    align-items: center;
+    margin-top: 100px;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1;
 }
 
 .home{
     display: flex;
+    width: 100%;
     align-items: center;
     justify-content: center;
-    flex-flow: column;
+    /* flex-flow: column; */
+    gap: 40px;
     position: relative;
     padding-bottom: 10rem;
 }
@@ -148,15 +169,19 @@ header .navbar ul li a:hover{
     padding:1rem 0;
 }
 
+.post-div {
+    text-align: center;
+}
+
 .home .post span{
     font-size: 3rem;
     color:#fff;
 }
 
 .home .share{
-    position: absolute;
+    /* position: absolute;
     left:50%; bottom:5rem;
-    transform: translateX(-50%);
+    transform: translateX(-50%); */
     display: flex;
     padding:1rem;
     border-radius: 1rem;
@@ -249,6 +274,7 @@ header .navbar ul li a:hover{
 .service .box-container{
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
@@ -259,7 +285,8 @@ header .navbar ul li a:hover{
     box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
     background: rgba(255,255,255,.2);
     text-align: center;
-    width:32rem;
+    width:300px;
+    height: 157px;
 }
 
 .service .box-container .box i{
@@ -276,9 +303,9 @@ header .navbar ul li a:hover{
 
 .education .box-container{
     display: flex;
-    /* align-items: center; */
+    align-items: center;
+    flex-direction: column;
     justify-content: space-between;
-    flex-wrap: wrap;
     padding:2rem 0;
 }
 
@@ -404,3 +431,45 @@ header .navbar ul li a:hover{
     box-shadow: 0 0 0 .5rem rgba(255,255,255,.2),
                 0 1rem 2rem rgba(0,0,0,.4);
 }
+
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 80rem;
+}
+
+@media only screen and (max-width: 800px) {
+    .page-container {
+        flex-direction: column;
+    } 
+
+    
+
+    .container {
+        flex: 0 1;
+        min-height: 420px;
+    } 
+    
+    /* Home Section */
+    .home h3{
+        font-size: 2rem;
+    }
+    
+    .home .name span{
+        font-size: 3.5rem;
+    }
+    
+    
+    .home .post span{
+        font-size: 2.5rem;
+    }
+
+    #service {
+        overflow: scroll;
+    }
+  }
